@@ -1,10 +1,15 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { TextInput } from "react-native";
 
 export default function NotesScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Notes screen</Text>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.text}>Notes screen</Text>
+        
+      </View>
+      <TextInput style={styles.textInput}></TextInput>
+    </ScrollView>
   );
 }
 
@@ -18,4 +23,9 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
   },
+  textInput: {
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+  }
 });
