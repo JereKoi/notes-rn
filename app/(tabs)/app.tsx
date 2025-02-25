@@ -8,7 +8,15 @@ export default function NotesScreen() {
         <Text style={styles.text}>Notes screen</Text>
         
       </View>
-      <TextInput style={styles.textInput}></TextInput>
+      <TextInput style={styles.textInput}>Type here</TextInput>
+      <TextInput
+        style={{
+          height: 40,
+          borderColor: 'gray',
+          borderWidth: 1,
+        }}
+        defaultValue="You can type in me"
+      />
     </ScrollView>
   );
 }
