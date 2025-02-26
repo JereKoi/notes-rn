@@ -3,8 +3,8 @@ import { TextInput } from "react-native";
 
 export default function NotesScreen() {
   return (
-    <ScrollView>
-      <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      <View>
         <Text style={styles.text}>Notes screen</Text>
         
       </View>
