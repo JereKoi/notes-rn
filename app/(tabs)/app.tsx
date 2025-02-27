@@ -3,20 +3,11 @@ import { TextInput } from "react-native";
 
 export default function NotesScreen() {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View>
         <Text style={styles.text}>Notes screen</Text>
-        
+        <TextInput style={styles.textInput}></TextInput>
       </View>
-      <TextInput style={styles.textInput}>Type here</TextInput>
-      <TextInput
-        style={{
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 1,
-        }}
-        defaultValue="You can type in me"
-      />
     </ScrollView>
   );
 }
@@ -24,16 +15,19 @@ export default function NotesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
     justifyContent: "center",
     alignItems: "center",
+    color: "white",
+    backgroundColor: "powderblue",
   },
   text: {
     color: "#fff",
+    fontSize: 100,
   },
   textInput: {
     height: 40,
+    color: "#fff",
     borderColor: "gray",
     borderWidth: 1,
-  }
+  },
 });
