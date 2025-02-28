@@ -6,7 +6,11 @@ export default function NotesScreen() {
     <ScrollView contentContainerStyle={styles.container}>
       <View>
         <Text style={styles.text}>Notes screen</Text>
-        <TextInput style={styles.textInput}></TextInput>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Type here"
+          keyboardType="numeric"
+        />
       </View>
     </ScrollView>
   );
@@ -25,8 +29,8 @@ const styles = StyleSheet.create({
     fontSize: 100,
   },
   textInput: {
-    height: 40,
-    color: "#fff",
+    height: '40%',
+    color: "#fff", // Why color does not work?
     borderColor: "gray",
     borderWidth: 1,
   },
