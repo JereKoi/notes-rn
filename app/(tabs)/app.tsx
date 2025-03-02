@@ -1,20 +1,22 @@
+import React from "react"
 import { Text, View, StyleSheet, ScrollView, TextInput } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function NotesScreen() {
+const [value, onChangeText] = React.useState()
+
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
-        <ScrollView contentContainerStyle={styles.container}>
           <View>
             <Text style={styles.text}>Notes screen</Text>
             <TextInput
               style={styles.textInput}
-              placeholder="Type here"
+              placeholder="Type here..."
               keyboardType="default"
+              multiline
             />
           </View>
-        </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
   );
