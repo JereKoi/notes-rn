@@ -15,6 +15,9 @@ const [value, onChangeText] = React.useState()
               placeholder="Type here..."
               keyboardType="default"
               multiline
+              textAlignVertical="top"
+              placeholderTextColor={"white"}
+              submitBehavior="newline"
             />
           </View>
       </SafeAreaView>
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: "40%",
-    color: "#fff", // Why color does not work?
+    color: "#fff",
     borderColor: "gray",
     borderWidth: 1,
   },
