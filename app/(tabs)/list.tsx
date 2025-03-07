@@ -25,6 +25,11 @@ export default function list() {
         <SectionList
           sections={DATA}
           keyExtractor={(item, index) => item + index}
+          renderItem={({item}) => (
+            <view style={styles.item}>
+              <Text style={styles.title}>{item}</Text>
+            </view>
+          )}
         />
       </SafeAreaView>
     </SafeAreaProvider>
@@ -48,5 +53,13 @@ const styles = StyleSheet.create({
     color: "#fff",
     borderColor: "gray",
     borderWidth: 1,
+  },
+  item: {
+    backgroundColor: 'gray',
+    padding: 20,
+    marginVertical: 8,
+  },
+  title: {
+    fontSize: 24,
   },
 });
