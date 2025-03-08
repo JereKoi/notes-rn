@@ -30,6 +30,9 @@ export default function list() {
               <Text style={styles.title}>{item}</Text>
             </view>
           )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style={styles.header}>{title}</Text>
+          )}
         />
       </SafeAreaView>
     </SafeAreaProvider>
@@ -58,6 +61,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     padding: 20,
     marginVertical: 8,
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 24,
