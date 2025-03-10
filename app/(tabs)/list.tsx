@@ -15,7 +15,12 @@ const widthScreen = Dimensions.get("window").width - 10;
 export default function list() {
   const [text, setText] = React.useState("");
 
-  const DATA = [
+  type ItemData = {
+    title: string;
+    data: string;
+  }
+
+  const DATA: ItemData[] = [
     {
       title: "06.03.2025",
       data: ["hello world"],
@@ -55,11 +60,8 @@ export default function list() {
       <SafeAreaView>
         <FlatList
           data={DATA}
-
-          renderItem={({ item }) => (
-            console.log("hello world")
-          )}
-         
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
         />
       </SafeAreaView>
     </SafeAreaProvider>
