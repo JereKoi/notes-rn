@@ -16,44 +16,65 @@ export default function list() {
   const [text, setText] = React.useState("");
 
   type ItemData = {
+    id: string;
     title: string;
     data: string;
   }
 
   const DATA: ItemData[] = [
     {
+      id: "1",
       title: "06.03.2025",
       data: ["hello world"],
     },
     {
+      id: "2",
       title: "06.03.2025",
       data: ["hello world"],
     },
     {
+      id: "3",
       title: "06.03.2025",
       data: ["hello world"],
     },
     {
+      id: "4",
       title: "06.03.2025",
       data: ["hello world"],
     },
     {
+      id: "5",
       title: "06.03.2025",
       data: ["hello world"],
     },
     {
+      id: "6",
       title: "06.03.2025",
       data: ["hello world"],
     },
     {
+      id: "7",
       title: "06.03.2025",
       data: ["hello world"],
     },
     {
+      id: "8",
       title: "06.03.2025",
       data: ["hello world"],
     },
   ];
+
+  const Item = ({title}) => {
+    return( 
+      <View style={styles.item}>
+        <Text>{title}</Text>
+      </View>
+    );
+  }
+  
+  const renderItem = ({item})=>( 
+    <Item title={item.title}/>
+  );
 
   return (
     <SafeAreaProvider style={styles.container}>
@@ -62,6 +83,8 @@ export default function list() {
           data={DATA}
           renderItem={renderItem}
           keyExtractor={item => item.id}
+          horizontal={true}
+          initialNumToRender={10}
         />
       </SafeAreaView>
     </SafeAreaProvider>
