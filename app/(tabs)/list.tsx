@@ -18,7 +18,7 @@ export default function list() {
   type ItemData = {
     id: string;
     title: string;
-    data: string;
+    data: string[];
   }
 
   const DATA: ItemData[] = [
@@ -64,7 +64,7 @@ export default function list() {
     },
   ];
 
-  const Item = ({title}) => {
+  const Item = ({title}: {title:string}) => {
     return( 
       <View style={styles.item}>
         <Text>{title}</Text>
@@ -72,7 +72,8 @@ export default function list() {
     );
   }
   
-  const renderItem = ({item})=>( 
+  // TODO: What type should item be??
+  const renderItem = ({item}: {item: })=>( 
     <Item title={item.title}/>
   );
 
