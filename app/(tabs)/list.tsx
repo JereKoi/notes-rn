@@ -12,6 +12,12 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 const widthScreen = Dimensions.get("window").width - 10;
 
+export interface IEntries {
+  id: string;
+  title: string;
+  data: string[];
+}
+
 export default function list() {
   const [text, setText] = React.useState("");
 
@@ -19,7 +25,7 @@ export default function list() {
     id: string;
     title: string;
     data: string[];
-  }
+  };
 
   const DATA: ItemData[] = [
     {
@@ -64,26 +70,21 @@ export default function list() {
     },
   ];
 
-  const Item = ({title}: {title:string}) => {
-    return( 
+  const Item = ({ data }: { data: IEntries }) => {
+    return (
       <View style={styles.item}>
-        <Text>{title}</Text>
+        <Text>{data.title}</Text>
       </View>
     );
-  }
-  
-  // TODO: What type should item be??
-  const renderItem = ({item}: {item: })=>( 
-    <Item title={item.title}/>
-  );
+  };
 
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <FlatList
           data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
+          renderItem={({item}) => <Item data={item} />}
+          keyExtractor={(item: IEntries) => item.id}
           horizontal={true}
           initialNumToRender={10}
         />
