@@ -82,11 +82,14 @@ export default function list() {
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <FlatList
+        style={styles.flatlist}
           data={DATA}
           renderItem={({item}) => <Item data={item} />}
           keyExtractor={(item: IEntries) => item.id}
-          horizontal={true}
+          horizontal={false}
           initialNumToRender={10}
+          numColumns={2}
+          ItemSeparatorComponent={() => <View style={{height: 20}} />}
         />
       </SafeAreaView>
     </SafeAreaProvider>
@@ -107,6 +110,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 70,
     backgroundColor: "#fff",
+  },
+  flatlist: {
+    borderTopRightRadius: 20,
   },
   text: {
     color: "#fff",
