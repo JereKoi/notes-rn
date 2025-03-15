@@ -12,10 +12,15 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 const widthScreen = Dimensions.get("window").width - 10;
 
+const numColumns = 2;
+const gap = 5;
+const initCardsToRender = 10;
+
 export interface IEntries {
   id: string;
   title: string;
   data: string[];
+  date: string;
 }
 
 export default function list() {
@@ -25,6 +30,7 @@ export default function list() {
     id: string;
     title: string;
     data: string[];
+    date: string;
   };
 
   const DATA: ItemData[] = [
@@ -32,48 +38,60 @@ export default function list() {
       id: "1",
       title: "06.03.2025",
       data: ["hello world"],
+      date: "06.03.2025",
     },
     {
       id: "2",
       title: "06.03.2025",
       data: ["hello world"],
+      date: "06.03.2025",
     },
     {
       id: "3",
       title: "06.03.2025",
       data: ["hello world"],
+      date: "06.03.2025",
     },
     {
       id: "4",
       title: "06.03.2025",
       data: ["hello world"],
+      date: "06.03.2025",
     },
     {
       id: "5",
       title: "06.03.2025",
       data: ["hello world"],
+      date: "06.03.2025",
     },
     {
       id: "6",
       title: "06.03.2025",
       data: ["hello world"],
+      date: "06.03.2025",
     },
     {
       id: "7",
       title: "06.03.2025",
       data: ["hello world"],
+      date: "06.03.2025",
     },
     {
       id: "8",
       title: "06.03.2025",
       data: ["hello world"],
+      date: "06.03.2025",
     },
   ];
 
+
+  // TODO: How to set different styles for different components?
   const Item = ({ data }: { data: IEntries }) => {
     return (
-      <View style={styles.item}>
+      <View style={styles.card}>
         <Text>{data.title}</Text>
+        <Text>{data.data}</Text>
+        <Text>{data.date}</Text>
       </View>
     );
   };
@@ -82,14 +100,16 @@ export default function list() {
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <FlatList
-        style={styles.flatlist}
+          style={styles.flatlist}
           data={DATA}
-          renderItem={({item}) => <Item data={item} />}
+          renderItem={({ item }) => <Item data={item} />}
           keyExtractor={(item: IEntries) => item.id}
           horizontal={false}
-          initialNumToRender={10}
-          numColumns={2}
-          ItemSeparatorComponent={() => <View style={{height: 20}} />}
+          initialNumToRender={initCardsToRender}
+          numColumns={numColumns}
+          key={numColumns}
+          contentContainerStyle={{gap}}
+          columnWrapperStyle={{gap}}
         />
       </SafeAreaView>
     </SafeAreaProvider>
@@ -102,8 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     color: "white",
-    backgroundColor: "powderblue",
-    paddingHorizontal: 10,
+    backgroundColor: "black",
   },
   loaderContainer: {
     justifyContent: "center",
@@ -113,6 +132,8 @@ const styles = StyleSheet.create({
   },
   flatlist: {
     borderTopRightRadius: 20,
+    marginTop: 15,
+    height: 'auto'
   },
   text: {
     color: "#fff",
@@ -135,7 +156,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: "#000",
+    color: "#fff",
     marginBottom: 10,
     fontWeight: "bold",
   },
@@ -146,13 +167,14 @@ const styles = StyleSheet.create({
     padding: 10,
     minHeight: 150,
     marginVertical: 10,
-    backgroundColor: "#fff",
+    backgroundColor: "#333333",
+    
     width: widthScreen / 2 - 10,
   },
   description: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#9e9e9e",
+    color: "#fff",
     textAlign: "justify",
   },
 });
