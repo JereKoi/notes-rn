@@ -37,61 +37,61 @@ export default function list() {
     {
       id: "1",
       title: "06.03.2025",
-      data: ["hello world"],
+      data: ["hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world"],
       date: "06.03.2025",
     },
     {
       id: "2",
       title: "06.03.2025",
-      data: ["hello world"],
+      data: ["hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world"],
       date: "06.03.2025",
     },
     {
       id: "3",
       title: "06.03.2025",
-      data: ["hello world"],
+      data: ["hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world"],
       date: "06.03.2025",
     },
     {
       id: "4",
       title: "06.03.2025",
-      data: ["hello world"],
+      data: ["hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world"],
       date: "06.03.2025",
     },
     {
       id: "5",
       title: "06.03.2025",
-      data: ["hello world"],
+      data: ["hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world"],
       date: "06.03.2025",
     },
     {
       id: "6",
       title: "06.03.2025",
-      data: ["hello world"],
+      data: ["hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world"],
       date: "06.03.2025",
     },
     {
       id: "7",
       title: "06.03.2025",
-      data: ["hello world"],
+      data: ["hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world"],
       date: "06.03.2025",
     },
     {
       id: "8",
       title: "06.03.2025",
-      data: ["hello world"],
+      data: ["hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world"],
       date: "06.03.2025",
     },
   ];
 
 
-  // TODO: How to set different styles for different components?
+  // TODO: How to set different components on different places on page?
   const Item = ({ data }: { data: IEntries }) => {
     return (
       <View style={styles.card}>
-        <Text>{data.title}</Text>
-        <Text>{data.data}</Text>
-        <Text>{data.date}</Text>
+        <Text style={styles.title}>{data.title}</Text>
+        <Text style={styles.description}>{data.date}</Text>
+        <Text style={styles.description}>{data.data}</Text>
       </View>
     );
   };
@@ -131,8 +131,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   flatlist: {
-    borderTopRightRadius: 20,
-    marginTop: 15,
+    marginTop: 300,
     height: 'auto'
   },
   text: {
