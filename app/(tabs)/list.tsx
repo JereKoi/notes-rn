@@ -84,6 +84,9 @@ export default function list() {
     },
   ];
 
+  const onPressNote = () => {
+    console.log("Do here reroute to single note view");
+  }
 
   // TODO: How to set different components on different places on page?
   const Item = ({ data }: { data: IEntries }) => {
@@ -96,9 +99,11 @@ export default function list() {
     );
   };
 
+  // TODO: how to add plus icon, burger icon?
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
+        <Text style={styles.folderTitle}>Here change folder name by user</Text>
         <FlatList
           style={styles.flatlist}
           data={DATA}
@@ -176,4 +181,13 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "justify",
   },
+  folderTitle: {
+    fontSize: 20,
+    textAlign: "center",
+    justifyContent: "center",
+    textAlignVertical: "center",
+    marginTop: 50, // Is there better way to "center" vertically text?
+    color: "#fff",
+    fontWeight: "bold",
+  }
 });
