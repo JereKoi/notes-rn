@@ -9,6 +9,7 @@ import {
   Dimensions,
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 const widthScreen = Dimensions.get("window").width - 10;
 
@@ -16,6 +17,7 @@ const numColumns = 2;
 const gap = 5;
 const initCardsToRender = 10;
 
+// TODO: What interface and type ItemData do and how they differ from each other?
 export interface IEntries {
   id: string;
   title: string;
@@ -99,11 +101,14 @@ export default function list() {
     );
   };
 
-  // TODO: how to add plus icon, burger icon?
+  // TODO: how to place icons lower?
+  // TODO: Is it possible to style AntDesign icons on stylesheet?
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <Text style={styles.folderTitle}>Here change folder name by user</Text>
+        <AntDesign name="plus" size={24} color="white" />
+        <AntDesign name="search1" size={24} color="white" />
         <FlatList
           style={styles.flatlist}
           data={DATA}
