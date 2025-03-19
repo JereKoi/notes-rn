@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { Link } from 'expo-router'
 
 const widthScreen = Dimensions.get("window").width - 10;
 
@@ -101,14 +102,15 @@ export default function list() {
     );
   };
 
+  // TODO: How routing really should be done?
   // TODO: how to place icons lower?
   // TODO: Is it possible to style AntDesign icons on stylesheet?
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <Text style={styles.folderTitle}>Here change folder name by user</Text>
-        <AntDesign name="plus" size={24} color="white" />
-        <AntDesign name="search1" size={24} color="white" />
+        <AntDesign name="plus" size={24} color="white" onPress={() => {<Link href="../createNote"/>}}/>
+        <AntDesign name="search1" size={24} color="white" onPress={() => {}} />
         <FlatList
           style={styles.flatlist}
           data={DATA}
