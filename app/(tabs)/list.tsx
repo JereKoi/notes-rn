@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { Link } from 'expo-router'
+import { Link, useNavigation, useRouter } from 'expo-router'
 
 const widthScreen = Dimensions.get("window").width - 10;
 
@@ -28,6 +28,8 @@ export interface IEntries {
 
 export default function list() {
   const [text, setText] = React.useState("");
+  const router = useRouter();
+  const navigation = useNavigation();
 
   type ItemData = {
     id: string;
@@ -109,7 +111,7 @@ export default function list() {
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <Text style={styles.folderTitle}>Here change folder name by user</Text>
-        <AntDesign name="plus" size={24} color="white" onPress={() => {<Link href="../createNote"/>}}/>
+        <AntDesign name="plus" size={24} color="white" onPress={() => router.push("../createNote") }/>
         <AntDesign name="search1" size={24} color="white" onPress={() => {}} />
         <FlatList
           style={styles.flatlist}
