@@ -104,6 +104,7 @@ export default function list() {
     );
   };
 
+  // TODO: How to place AntDesign vectors vertically next to each other?
   // TODO: How routing really should be done?
   // TODO: how to place icons lower?
   // TODO: Is it possible to style AntDesign icons on stylesheet?
@@ -111,8 +112,8 @@ export default function list() {
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <Text style={styles.folderTitle}>Here change folder name by user</Text>
-        <AntDesign name="plus" size={24} color="white" onPress={() => router.push("../createNote") }/>
-        <AntDesign name="search1" size={24} color="white" onPress={() => {}} />
+        <AntDesign name="plus" size={24} style={styles.AddIcon} color="white" onPress={() => router.push("../createNote") }/>
+        <AntDesign name="search1" size={24} style={styles.SearchIcon} color="white" onPress={() => {}} />
         <FlatList
           style={styles.flatlist}
           data={DATA}
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   flatlist: {
-    marginTop: 300,
+    marginTop: 0,
     height: 'auto'
   },
   text: {
@@ -198,5 +199,11 @@ const styles = StyleSheet.create({
     marginTop: 50, // Is there better way to "center" vertically text?
     color: "#fff",
     fontWeight: "bold",
+  },
+  AddIcon: {
+    marginTop: 300,
+  },
+  SearchIcon: {
+
   }
 });
