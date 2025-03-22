@@ -112,8 +112,10 @@ export default function list() {
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <Text style={styles.folderTitle}>Here change folder name by user</Text>
+        <View style={{flexDirection:"row"}}>
         <AntDesign name="plus" size={24} style={styles.AddIcon} color="white" onPress={() => router.push("../createNote") }/>
-        <AntDesign name="search1" size={24} style={styles.SearchIcon} color="white" onPress={() => {}} />
+        <AntDesign name="search1" size={24} style={styles.AddIcon} color="white" onPress={() => {}} />
+        </View>
         <FlatList
           style={styles.flatlist}
           data={DATA}
@@ -204,6 +206,5 @@ const styles = StyleSheet.create({
     marginTop: 300,
   },
   SearchIcon: {
-
   }
 });
