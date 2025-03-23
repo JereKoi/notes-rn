@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState } from "react";
 import {
   Text,
   View,
@@ -27,9 +27,10 @@ export interface IEntries {
 }
 
 export default function list() {
-  const [text, setText] = React.useState("");
+  const [text, setText] = useState("");
   const router = useRouter();
   const navigation = useNavigation();
+  const [filteredData, setFilteredData] = useState([]);
 
   type ItemData = {
     id: string;
@@ -93,6 +94,7 @@ export default function list() {
     console.log("Do here reroute to single note view");
   }
 
+
   // TODO: How to set different components on different places on page?
   const Item = ({ data }: { data: IEntries }) => {
     return (
@@ -104,6 +106,7 @@ export default function list() {
     );
   };
 
+  // TODO: What is touchableopacity?
   // TODO: How to place AntDesign vectors vertically next to each other?
   // TODO: How routing really should be done?
   // TODO: how to place icons lower?
@@ -113,8 +116,9 @@ export default function list() {
       <SafeAreaView>
         <Text style={styles.folderTitle}>Here change folder name by user</Text>
         <View style={{flexDirection:"row"}}>
-        <AntDesign name="plus" size={24} style={styles.AddIcon} color="white" onPress={() => router.push("../createNote") }/>
-        <AntDesign name="search1" size={24} style={styles.AddIcon} color="white" onPress={() => {}} />
+        <AntDesign name="plus" size={24} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
+        <AntDesign name="search1" size={24} style={styles.addIcon} color="white" onPress={() => {}} />
+        <TextInput placeholder="Search" value="text" style={styles.searchInput}/>
         </View>
         <FlatList
           style={styles.flatlist}
@@ -202,9 +206,14 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
-  AddIcon: {
+  addIcon: {
     marginTop: 300,
   },
-  SearchIcon: {
+  searchInput: {
+    width: "100%",
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   }
 });
