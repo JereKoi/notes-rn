@@ -210,7 +210,8 @@ const styles = StyleSheet.create({
     marginTop: 300,
   },
   searchInput: {
-    width: "100%",
+    borderColor: "red",
+    color: "white",
     height: 40,
     margin: 12,
     borderWidth: 1,
