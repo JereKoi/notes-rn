@@ -94,6 +94,9 @@ export default function list() {
     console.log("Do here reroute to single note view");
   }
 
+  const ShowSearchBar = () => {
+    console.log("Hello, here comes search bar showing and unshowing")
+  }
 
   // TODO: How to set different components on different places on page?
   const Item = ({ data }: { data: IEntries }) => {
@@ -118,7 +121,7 @@ export default function list() {
         <View style={{flexDirection:"row"}}>
         <AntDesign name="plus" size={24} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
         <AntDesign name="search1" size={24} style={styles.addIcon} color="white" onPress={() => {}} />
-        <TextInput placeholder="Search" value="text" style={styles.searchInput}/>
+        <TextInput placeholder="Search" placeholderTextColor={"white"} style={styles.searchInput}/>
         </View>
         <FlatList
           style={styles.flatlist}
@@ -207,14 +210,17 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   addIcon: {
-    marginTop: 300,
+    marginTop: 210,
+    marginRight: 5,
   },
   searchInput: {
-    borderColor: "red",
+    borderColor: "white",
     color: "white",
-    height: 40,
+    height: "auto",
+    width: "auto",
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    marginTop: 200,
   }
 });
