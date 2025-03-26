@@ -95,7 +95,7 @@ export default function list() {
   }
 
   const ShowSearchBar = () => {
-    console.log("Hello, here comes search bar showing and unshowing")
+    
   }
 
   // TODO: How to set different components on different places on page?
@@ -109,6 +109,12 @@ export default function list() {
     );
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {isHidden: false};
+    this.onPress = this.onPress.bind(this);
+  }
+
   // TODO: What is touchableopacity?
   // TODO: How to place AntDesign vectors vertically next to each other?
   // TODO: How routing really should be done?
@@ -121,7 +127,7 @@ export default function list() {
         <View style={{flexDirection:"row"}}>
         <AntDesign name="plus" size={24} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
         <AntDesign name="search1" size={24} style={styles.addIcon} color="white" onPress={() => {}} />
-        <TextInput placeholder="Search" placeholderTextColor={"white"} style={styles.searchInput}/>
+        <TextInput placeholder="Search" placeholderTextColor={"white"} style={styles.searchInput} onPress={() => ({<View style={{ display: this.state.isVisible ? 'flex' : 'none' </View>)}}>
         </View>
         <FlatList
           style={styles.flatlist}
