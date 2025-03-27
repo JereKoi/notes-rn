@@ -31,6 +31,7 @@ export default function list() {
   const router = useRouter();
   const navigation = useNavigation();
   const [filteredData, setFilteredData] = useState([]);
+  const [showSearchbar, setShowSearchbar] = useState(false);
 
   type ItemData = {
     id: string;
@@ -95,7 +96,7 @@ export default function list() {
   }
 
   const ShowSearchBar = () => {
-    
+    setShowSearchbar(!showSearchbar);
   }
 
   // TODO: How to set different components on different places on page?
@@ -109,11 +110,6 @@ export default function list() {
     );
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {isHidden: false};
-    this.onPress = this.onPress.bind(this);
-  }
 
   // TODO: What is touchableopacity?
   // TODO: How to place AntDesign vectors vertically next to each other?
@@ -126,8 +122,8 @@ export default function list() {
         <Text style={styles.folderTitle}>Here change folder name by user</Text>
         <View style={{flexDirection:"row"}}>
         <AntDesign name="plus" size={24} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
-        <AntDesign name="search1" size={24} style={styles.addIcon} color="white" onPress={() => {}} />
-        <TextInput placeholder="Search" placeholderTextColor={"white"} style={styles.searchInput} onPress={() => ({<View style={{ display: this.state.isVisible ? 'flex' : 'none' </View>)}}>
+        <AntDesign name="search1" size={24} style={styles.addIcon} color="white" onPress={ShowSearchBar} />
+        {showSearchbar && <TextInput placeholder="Search" placeholderTextColor={"white"} style={styles.searchInput}></TextInput>}
         </View>
         <FlatList
           style={styles.flatlist}
