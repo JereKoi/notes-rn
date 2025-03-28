@@ -120,10 +120,12 @@ export default function list() {
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <Text style={styles.folderTitle}>Here change folder name by user</Text>
+        <Text style={styles.folderTitle}>Here come number of notes</Text>
         <View style={{flexDirection:"row"}}>
         <AntDesign name="plus" size={24} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
         <AntDesign name="search1" size={24} style={styles.addIcon} color="white" onPress={ShowSearchBar} />
         {showSearchbar && <TextInput placeholder="Search" placeholderTextColor={"white"} style={styles.searchInput}></TextInput>}
+        <Text style={styles.folderTitle}>Here comes sorting component</Text>
         </View>
         <FlatList
           style={styles.flatlist}
