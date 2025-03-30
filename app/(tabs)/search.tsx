@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
@@ -9,8 +9,8 @@ import {
   Dimensions,
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import AntDesign from '@expo/vector-icons/AntDesign';
-import { Link, useNavigation, useRouter } from 'expo-router'
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { Link, useNavigation, useRouter } from "expo-router";
 
 const widthScreen = Dimensions.get("window").width - 10;
 
@@ -37,6 +37,11 @@ export default function list() {
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <Text style={styles.folderTitle}>Search tab</Text>
+        <TextInput
+          placeholder="Search"
+          placeholderTextColor={"white"}
+          style={styles.searchInput}
+        ></TextInput>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -58,7 +63,7 @@ const styles = StyleSheet.create({
   },
   flatlist: {
     marginTop: 0,
-    height: 'auto'
+    height: "auto",
   },
   text: {
     color: "#fff",
@@ -93,7 +98,7 @@ const styles = StyleSheet.create({
     minHeight: 150,
     marginVertical: 10,
     backgroundColor: "#333333",
-    
+
     width: widthScreen / 2 - 10,
   },
   description: {
@@ -116,13 +121,10 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   searchInput: {
-    borderColor: "white",
+    fontSize: 18,
     color: "white",
-    height: "auto",
-    width: "auto",
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    marginTop: 200,
-  }
+    marginBottom: 30,
+    borderBottomColor: "grey",
+    borderBottomWidth: 2,
+  },
 });
