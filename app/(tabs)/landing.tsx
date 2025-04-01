@@ -36,7 +36,12 @@ export default function list() {
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
+      <AntDesign name="menu-unfold" size={24} color="white" />
+      <AntDesign name="menu-fold" size={24} color="white" />
         <Text style={styles.folderTitle}>Landing tab</Text>
+        <AntDesign name="save" size={100} color="white" />
+        <AntDesign name="plus" size={100} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
+        <AntDesign name="search1" size={100} style={styles.addIcon} color="white" />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -112,8 +117,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   addIcon: {
-    marginTop: 210,
-    marginRight: 5,
+
   },
   searchInput: {
     borderColor: "white",
