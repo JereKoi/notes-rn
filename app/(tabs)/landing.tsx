@@ -33,11 +33,13 @@ export default function list() {
   const [filteredData, setFilteredData] = useState([]);
   const [showSearchbar, setShowSearchbar] = useState(false);
 
+// How to use antdesign icons?
+
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
       <AntDesign name="menu-unfold" size={24} color="white" />
-      <AntDesign name="menu-fold" size={24} color="white" />
+      <AntDesign MenuOutlined color="white" />
         <Text style={styles.folderTitle}>Landing tab</Text>
         <AntDesign name="save" size={100} color="white" />
         <AntDesign name="plus" size={100} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
@@ -128,5 +130,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     marginTop: 200,
+  },
+
+  hamburgerIcon: {
+    
   }
 });
