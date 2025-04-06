@@ -7,9 +7,11 @@ import {
   TextInput,
   FlatList,
   Dimensions,
+  TouchableOpacity
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Feather from '@expo/vector-icons/Feather';
 import { Link, useNavigation, useRouter } from 'expo-router'
 
 const widthScreen = Dimensions.get("window").width - 10;
@@ -26,6 +28,30 @@ export interface IEntries {
   date: string;
 }
 
+// How to place icons to exact same place on different views?
+const HeaderIcon = () => {
+  return (
+    <View>
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          top: -66,
+          right: -200,
+          zIndex: 1,
+        }}
+        onPress={() => console.log("Clicked burger icon")}
+      >
+        <Feather
+          name="menu"
+          size={50}
+          style={styles.hamburgerIcon}
+          color="white"
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
 export default function list() {
   const [text, setText] = useState("");
   const router = useRouter();
@@ -33,17 +59,13 @@ export default function list() {
   const [filteredData, setFilteredData] = useState([]);
   const [showSearchbar, setShowSearchbar] = useState(false);
 
-// How to use antdesign icons?
-
   return (
-    <SafeAreaProvider style={styles.container}>
-      <SafeAreaView>
-      <AntDesign name="menu-unfold" size={24} color="white" />
-      <AntDesign MenuOutlined color="white" />
-        <Text style={styles.folderTitle}>Landing tab</Text>
-        <AntDesign name="save" size={100} color="white" />
-        <AntDesign name="plus" size={100} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
-        <AntDesign name="search1" size={100} style={styles.addIcon} color="white" />
+    <SafeAreaProvider >
+      <SafeAreaView style={styles.container}>
+      <HeaderIcon/>
+        <AntDesign name="save" size={150} style={styles.bigIcons} color="white" />
+        <AntDesign name="plus" size={150} style={styles.bigIcons} color="white" onPress={() => router.push("../createNote") }/>
+        <AntDesign name="search1" size={150} style={styles.bigIcons} color="white" />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -92,17 +114,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: "bold",
   },
-  card: {
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: "#9e9e9e",
-    padding: 10,
-    minHeight: 150,
-    marginVertical: 10,
-    backgroundColor: "#333333",
-    
-    width: widthScreen / 2 - 10,
-  },
   description: {
     fontSize: 16,
     fontWeight: "600",
@@ -118,7 +129,8 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
-  addIcon: {
+  bigIcons: {
+    marginBottom: 70,
 
   },
   searchInput: {
@@ -133,6 +145,8 @@ const styles = StyleSheet.create({
   },
 
   hamburgerIcon: {
-    
+    alignSelf: "flex-end",
+    marginEnd: 20,
+    marginBottom: 40,
   }
 });
