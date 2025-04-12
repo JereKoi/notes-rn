@@ -1,18 +1,16 @@
 import React from "react";
-import { Text, View, StyleSheet, FlatList } from "react-native";
+import { Text, View, StyleSheet, ScrollView, TextInput, FlatList } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import OnBoarding from "../../components/OnBoarding"
+import OnBoardingItem from "../components/OnBoardingItem"
 
-
-export default function App() {
+export default function OnBoarding() {
   const [text, setText] = React.useState("");
 
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <View>
-          <FlatList></FlatList>
-          <OnBoarding/>
+          <FlatList data={slides} renderItem={({ item}) => <OnBoardingItem item={item} />}></FlatList>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>

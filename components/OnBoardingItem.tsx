@@ -1,18 +1,15 @@
 import React from "react";
-import { Text, View, StyleSheet, FlatList } from "react-native";
+import { Text, View, StyleSheet, ScrollView, TextInput, Image, useWindowDimensions } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import OnBoarding from "../../components/OnBoarding"
 
-
-export default function App() {
+export default function OnBoardingItem() {
   const [text, setText] = React.useState("");
 
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <View>
-          <FlatList></FlatList>
-          <OnBoarding/>
+          <Text style={styles.text}>OnBoardingItem</Text>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
