@@ -1,14 +1,39 @@
 import React from "react";
-import { Text, View, StyleSheet, ScrollView, TextInput } from "react-native";
+import { Text, View, StyleSheet, ScrollView, TextInput, TouchableOpacity, } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import Feather from "@expo/vector-icons/Feather";
 
 export default function CreateNote() {
   const [text, setText] = React.useState("");
+
+const HeaderIcon = () => {
+  return (
+    <View>
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          top: -108,
+          right: -50,
+          zIndex: 1,
+        }}
+        onPress={() => console.log("Clicked burger icon")}
+      >
+        <Feather
+          name="menu"
+          size={50}
+          style={styles.hamburgerIcon}
+          color="white"
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
 
   return (
     <SafeAreaProvider style={styles.container}>
       <SafeAreaView>
         <View>
+        <HeaderIcon />
           <Text style={styles.text}>Notes screen</Text>
           <TextInput
             value={text}
@@ -36,7 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     color: "white",
-    backgroundColor: "powderblue",
+    backgroundColor: "black",
   },
   text: {
     color: "#fff",
@@ -47,5 +72,10 @@ const styles = StyleSheet.create({
     color: "#fff",
     borderColor: "gray",
     borderWidth: 1,
+  },
+  hamburgerIcon: {
+    alignSelf: "flex-end",
+    marginEnd: 20,
+    marginBottom: 40,
   },
 });

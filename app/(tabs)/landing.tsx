@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
@@ -7,12 +7,12 @@ import {
   TextInput,
   FlatList,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import AntDesign from '@expo/vector-icons/AntDesign';
-import Feather from '@expo/vector-icons/Feather';
-import { Link, useNavigation, useRouter } from 'expo-router'
+import AntDesign from "@expo/vector-icons/AntDesign";
+import Feather from "@expo/vector-icons/Feather";
+import { Link, useNavigation, useRouter } from "expo-router";
 
 const widthScreen = Dimensions.get("window").width - 10;
 
@@ -60,12 +60,30 @@ export default function list() {
   const [showSearchbar, setShowSearchbar] = useState(false);
 
   return (
-    <SafeAreaProvider >
+    <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
-      <HeaderIcon/>
-        <AntDesign name="save" size={150} style={styles.bigIcons} color="white" />
-        <AntDesign name="plus" size={150} style={styles.bigIcons} color="white" onPress={() => router.push("../createNote") }/>
-        <AntDesign name="search1" size={150} style={styles.bigIcons} color="white" />
+        <HeaderIcon />
+        <AntDesign
+          name="save"
+          size={150}
+          style={styles.bigIcons}
+          color="white"
+          onPress={() => router.navigate("../list")}
+        />
+        <AntDesign
+          name="plus"
+          size={150}
+          style={styles.bigIcons}
+          color="white"
+          onPress={() => router.navigate("../createNote")}
+        />
+        <AntDesign
+          name="search1"
+          size={150}
+          style={styles.bigIcons}
+          color="white"
+          onPress={() => router.navigate("../search")}
+        />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -87,7 +105,7 @@ const styles = StyleSheet.create({
   },
   flatlist: {
     marginTop: 0,
-    height: 'auto'
+    height: "auto",
   },
   text: {
     color: "#fff",
@@ -131,7 +149,6 @@ const styles = StyleSheet.create({
   },
   bigIcons: {
     marginBottom: 70,
-
   },
   searchInput: {
     borderColor: "white",
@@ -148,5 +165,5 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginEnd: 20,
     marginBottom: 40,
-  }
+  },
 });

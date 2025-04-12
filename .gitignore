@@ -60,3 +60,5 @@ expo-env.d.ts
 *.iml
 .gradle/
 /build/
+
+yarn.lock
