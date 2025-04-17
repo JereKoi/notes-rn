@@ -1,19 +1,29 @@
 import React from "react";
-import { Text, View, StyleSheet, ScrollView, TextInput, FlatList } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  TextInput,
+  FlatList,
+} from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import OnBoardingItem from "../components/OnBoardingItem"
+import OnBoardingItem from "../components/OnBoardingItem";
 
 export default function OnBoarding() {
   const [text, setText] = React.useState("");
 
   return (
-    <SafeAreaProvider style={styles.container}>
-      <SafeAreaView>
-        <View>
-          <FlatList data={slides} renderItem={({ item}) => <OnBoardingItem item={item} />}></FlatList>
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <View style={styles.container}>
+      <FlatList
+        data={slides}
+        renderItem={({ item }) => <OnBoardingItem item={item} />}
+        horizontal
+        showsHorizontalScrollIndicator
+        pagingEnabled
+        bounces={false} // prevents user to drag the onboarding to left side when there is no slides anymore to the left side.
+      />
+    </View>
   );
 }
 
