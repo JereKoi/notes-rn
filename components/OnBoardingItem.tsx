@@ -1,29 +1,18 @@
 import React from "react";
 import { Text, View, StyleSheet, ScrollView, TextInput, Image, useWindowDimensions } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-
+import { ImageSourcePropType } from "react-native";
 
 // TODO: What to do to 'OnBoardingItem', which lacks return-type annotation, implicitly has an 'any' return type.ts(7010)
 // TODO: and Binding element 'item' implicitly has an 'any' type.ts(7031)
 // https://www.youtube.com/watch?v=r2NJJye0XnM
 
-export default function OnBoardingItem = ({{item} }) => {
-  const [text, setText] = React.useState("");
-  const { width } = useWindowDimensions();
-
-  return (
-    <SafeAreaProvider style={styles.container}>
-      <SafeAreaView>
-        <View style={[styles.container, {width }]}>
-        <Image source={item.image} style={[styles.image, { width, resizeMode: "contain" }]}/>
-        <View style={{ flex: 0.3 }}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-        </View>
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
-  );
+interface OnBoardingItemProps {
+  item: {
+    image: ImageSourcePropType;
+    title: string,
+    description: string,
+  }
 }
 
 const styles = StyleSheet.create({
@@ -65,3 +54,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 64,
   }
 });
+
+
+export default function OnBoardingItem ({item}: OnBoardingItemProps ): JSX.Element => {
+  const [text, setText] = React.useState("");
+  const { width } = useWindowDimensions();
+
+  return (
+    <SafeAreaProvider style={styles.container}>
+      <SafeAreaView>
+        <View style={[styles.container, {width }]}>
+        <Image source={item.image} style={[styles.image, { width, resizeMode: "contain" }]}/>
+        <View style={{ flex: 0.3 }}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.description}>{item.description}</Text>
+        </View>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+}
+
