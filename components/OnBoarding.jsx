@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import {
   Text,
   View,
@@ -6,6 +6,7 @@ import {
   ScrollView,
   TextInput,
   FlatList,
+  Animated
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import OnBoardingItem from "../components/OnBoardingItem";
@@ -22,6 +23,7 @@ export default function OnBoarding() {
         showsHorizontalScrollIndicator
         pagingEnabled
         bounces={false} // prevents user to drag the onboarding to left side when there is no slides anymore to the left side.
+        keyExtractor={(item) => item.id}
       />
     </View>
   );

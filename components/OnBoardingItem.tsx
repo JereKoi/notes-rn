@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 });
 
 
-export default function OnBoardingItem ({item}: OnBoardingItemProps ): JSX.Element => {
+export default function OnBoardingItem ({item}: OnBoardingItemProps ): JSX.Element {
   const [text, setText] = React.useState("");
   const { width } = useWindowDimensions();
 
