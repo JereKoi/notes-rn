@@ -14,6 +14,7 @@ import OnBoardingItem from "../components/OnBoardingItem";
 export default function OnBoarding() {
   const [text, setText] = React.useState("");
 
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -24,6 +25,9 @@ export default function OnBoarding() {
         pagingEnabled
         bounces={false} // prevents user to drag the onboarding to left side when there is no slides anymore to the left side.
         keyExtractor={(item) => item.id}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
+          useNativeDriver: false,
+        })}
       />
     </View>
   );
