@@ -12,7 +12,8 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import OnBoardingItem from "../components/OnBoardingItem";
 
 export default function OnBoarding() {
-  const [text, setText] = React.useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollX = useRef(new Animated.Value(0)).current;
 
 
   return (
