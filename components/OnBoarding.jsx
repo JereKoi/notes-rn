@@ -23,7 +23,7 @@ export default function OnBoarding() {
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50}).current;
 
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 3}}>
       <FlatList
         data={slides}
         renderItem={({ item }) => <OnBoardingItem item={item} />}

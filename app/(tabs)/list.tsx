@@ -226,5 +226,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     marginTop: 200,
+    position: "absolute"
   }
 });
