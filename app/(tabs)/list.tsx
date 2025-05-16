@@ -117,28 +117,23 @@ export default function list() {
   // TODO: how to place icons lower?
   // TODO: Is it possible to style AntDesign icons on stylesheet?
   return (
-    <SafeAreaProvider style={styles.container}>
+<SafeAreaProvider style={styles.container}>
       <SafeAreaView>
-        <Text style={styles.folderTitle}>Here change folder name by user</Text>
-        <Text style={styles.folderTitle}>Here come number of notes</Text>
-        <View style={{flexDirection:"row"}}>
-        <AntDesign name="plus" size={24} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
-        <AntDesign name="search1" size={24} style={styles.addIcon} color="white" onPress={ShowSearchBar} />
-        {showSearchbar && <TextInput placeholder="Search" placeholderTextColor={"white"} style={styles.searchInput}></TextInput>}
-        <Text style={styles.folderTitle}>Here comes sorting component</Text>
-        </View>
-        <FlatList
-          style={styles.flatlist}
-          data={DATA}
-          renderItem={({ item }) => <Item data={item} />}
-          keyExtractor={(item: IEntries) => item.id}
-          horizontal={false}
-          initialNumToRender={initCardsToRender}
-          numColumns={numColumns}
-          key={numColumns}
-          contentContainerStyle={{gap}}
-          columnWrapperStyle={{gap}}
-        />
+        <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
+          <Text style={styles.folderTitle}>Here change folder name by user</Text>
+          <Text style={styles.folderTitle}>Here come number of notes</Text>
+          <View style={{flexDirection:"row", alignItems: 'center', marginBottom: 20}}>
+            <AntDesign name="plus" size={24} style={styles.addIcon} color="white" onPress={() => router.push("../createNote") }/>
+            <AntDesign name="search1" size={24} style={styles.addIcon} color="white" onPress={ShowSearchBar} />
+            {showSearchbar && <TextInput placeholder="Search" placeholderTextColor={"white"} style={styles.searchInput}></TextInput>}
+            <Text style={styles.folderTitle}>Here comes sorting component</Text>
+          </View>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+            {DATA.map((item) => (
+              <Item key={item.id} data={item} />
+            ))}
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -220,12 +215,13 @@ const styles = StyleSheet.create({
   searchInput: {
     borderColor: "white",
     color: "white",
-    height: "auto",
-    width: "auto",
-    margin: 12,
+    height: 40,
+    width: 200,
     borderWidth: 1,
     padding: 10,
-    marginTop: 200,
-    position: "absolute"
+    position: 'absolute',
+    top: 200,
+    left: 100,
+    zIndex: 10,
   }
 });
